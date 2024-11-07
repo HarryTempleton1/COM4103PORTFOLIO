@@ -1,6 +1,5 @@
+#This library allows me to create a random number for the player to guess
 import random
-
-
 
 def main():
     print("WELCOME TO THE GUESSING GAME")
@@ -8,6 +7,7 @@ def main():
     print("2. Three Rounds")
     print("3. Quit")
     menuInput = int(input("input a number to choose game mode or input 3 to leave"))
+    #sends the flow of code to the function for the game mode chosen
     if(menuInput == 1):
         play_single_round()
     elif(menuInput == 2):
@@ -18,13 +18,15 @@ def main():
         print("invalid input")
 
 def play_single_round():
+    #chooses a random number between 0 and 100
     dealerNum = random.randint(0,100)
     attempts = 0
-    maxAttempts = 10
+    maxAttempts = 9
     playerNum = 0
-
-    while(attempts <= maxAttempts):
+    #while loop that checks if the player has reached the max amount of attempts
+    while(attempts < maxAttempts):
         playerNum = int(input('Input a number 0-100'))
+        #if statement to tell the user if their guess was higher lower or correct
         if(playerNum > dealerNum):
             print('The number is lower than your number')
             attempts += 1
@@ -37,6 +39,7 @@ def play_single_round():
             print('the number was ',dealerNum,' you guessed correctly. CONGRATS!')
             print("it took you", attempts, "guesses to get the correct answer")
             main()
+    #if the number of attempts becomes greater than the maximum attempts a message saying you loose with be printed and you will be sent back to the main menu
     print("you used all of your attempts! Game over!")
     main()
     
