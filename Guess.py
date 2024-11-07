@@ -44,34 +44,39 @@ def play_single_round():
     main()
     
 def play_three_rounds():
+        #variables to keep track of the amount of rounds won and the users total amount of guesses or score
         roundsWon = 0
         totalScore = 0
+        round = 0
+        #a for loop to run the game 3 times
         for x in range(3):
             dealerNum = random.randint(0,100)
             attempts = 0
-            maxAttempts = 10
+            maxAttempts = 9
             playerNum = 0
-            round = 1
+            round += 1
             print("game: ", round)
-            while(attempts < maxAttempts):
+            
+            while(attempts <= maxAttempts):
                 playerNum = int(input('Input a number 0-100'))
                 if(playerNum > dealerNum):
                     print('The number is lower than your number')
                     attempts += 1
                     print("you have", 10 - attempts, "attempts left")
-                elif(playerNum < dealerNum):
+                if(playerNum < dealerNum):
                     print('The number is higher than your number')
                     attempts += 1
                     print("you have", 10 - attempts, "attempts left")
-                elif(playerNum == dealerNum):
+                if(playerNum == dealerNum):
                     print("You guessed the number!")
-                    attempts == maxAttempts
-            roundsWon =+ 1
-            totalScore =+ attempts
-            round =+ 1
+                    #adds the amount of guesses and rounds won to your score
+                    roundsWon += 1
+                    totalScore += attempts
+                    #breaks the while loop and allows the next game to start
+                    break
         print("Congratulations! You won", roundsWon, " rounds!")
         print("Your total score is: ", totalScore)
         main()
-
+#loads main menu
 if __name__ == '__main__':
     main()
