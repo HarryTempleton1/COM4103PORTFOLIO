@@ -15,8 +15,12 @@ def main():
         print("7. LOGARITHM")
         print("8. TRIGONOMETRIC FUNCTIONS")
         print("9. QUIT")
-        menuInput = int(input("input a number to choose Operation or input 9 to leave"))
-        #sends the flow of code to the function for the math type chosen
+        #try except statement that prints an error message if the input is not an integer, prevents program from crashing
+        try:
+            menuInput = int(input("input a number to choose Operation or input 9 to leave"))
+            #sends the flow of code to the function for the math type chosen
+        except ValueError:
+            print("invalid input please only enter integer values")
         if(menuInput == 1):
             addition()
         elif(menuInput == 2):
@@ -30,60 +34,94 @@ def main():
         elif(menuInput == 6):
             squareRoot()
         elif(menuInput == 7):
-            squareRoot()
+            logarithm()
         elif(menuInput == 8):
-            logarithm
+            trigonometricFunctions()
         #if any other integers are input it will default to this else staterment showing an invalid input
         else:
             print("invalid input")
 
 def addition():
-    inpA = int(input("input the first number you would like to add"))
-    inpB = int(input("input the second number you would like to add"))
-    result = inpA + inpB
-    print(result)
+    try:
+        inpA = int(input("input the first number you would like to add"))
+        inpB = int(input("input the second number you would like to add"))
+        result = inpA + inpB
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def subtraction():
+    try:
+        inpA = int(input("input the number you want to be subtracted from"))
+        inpB = int(input("input the number you want to subtract"))
+        result = inpA - inpB
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values") 
     
-    inpA = int(input("input the number you want to be subtracted from"))
-    inpB = int(input("input the number you want to subtract"))
-    result = inpA - inpB
-    print(result)
+      
     
 
 def multiplication():
-    inpA = int(input("input the first number you would like to multiply"))
-    inpB = int(input("input the second number you would like to multiply"))
-    result = inpA * inpB
-    print(result)
+    try:
+        inpA = int(input("input the first number you would like to multiply"))
+        inpB = int(input("input the second number you would like to multiply"))
+        result = inpA * inpB
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values") 
+    
+    
 
 def division():
-    inpA = int(input("input the number you want to be divided"))
-    inpB = int(input("input the number you want to be divided by"))
-    #error checking to prevent divide by zero
-    if inpA or inpB == 0:
-        print("invalid input")
-    else:
-        result = inpA / inpB
-        print(result)
+    try:
+        inpA = int(input("input the number you want to be divided"))
+        inpB = int(input("input the number you want to be divided by"))
+        #error checking to prevent divide by zero
+        if inpA or inpB == 0:
+            print("invalid input")
+        else:
+            result = inpA / inpB
+            print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def exponentiation():
-    inpA = int(input("What would you like to raise E to the power of?"))
-    result = math.exp(inpA)
-    print(result)
+    try:
+        inpA = int(input("What would you like to raise E to the power of?"))
+        result = math.exp(inpA)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def squareRoot():
-    inpA = int(input("What number would you like to squareroot?"))
-    #sqrt is the syntax for the square root function in the math library
-    result = math.sqrt(inpA)
-    print(result)
+    try:
+        inpA = int(input("What number would you like to squareroot?"))
+        #sqrt is the syntax for the square root function in the math library
+        result = math.sqrt(inpA)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def logarithm():
-    inpA = int(input("What number would you like to find the logarithm of"))
-    inpB = int(input("What number do you want the base of the logarithm to be (leave blank for E)"))
-    #inpA is the number the logarithmic function is working on and inpB is the base of the log
-    result = math.log(inpA, inpB)
-    print(result)
+    try:
+        inpA = int(input("What number would you like to find the logarithm of"))
+        inpB = int(input("What number do you want the base of the logarithm to be (leave blank for E)"))
+        #inpA is the number the logarithmic function is working on and inpB is the base of the log
+        result = math.log(inpA, inpB)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def trigonometricFunctions():
     print("Which trigonometric function would you like to select?")
@@ -91,7 +129,10 @@ def trigonometricFunctions():
     print("2. Cosine")
     print("3. Tangent")
     print("4. Main Menu")
-    menuInput = int(input("input a number to choose Operation or input 9 to leave"))
+    try:
+        menuInput = int(input("input a number to choose Operation or input 9 to leave"))
+    except ValueError:
+        print("invalid input please only enter integer values")
     if(menuInput == 1):
         sine()
     elif(menuInput == 2):
@@ -102,19 +143,34 @@ def trigonometricFunctions():
         main()
 
 def sine():
-    inpA = int(input("What number would you like to sine?"))
-    result = math.sin(inpA)
-    print(result)
+    try:
+        inpA = int(input("What number would you like to sine?"))
+        result = math.sin(inpA)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def cosine():
-    inpA = int(input("What number would you like to cosine?"))
-    result = math.cos(inpA)
-    print(result)
+    try:
+        inpA = int(input("What number would you like to cosine?"))
+        result = math.cos(inpA)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 def tangent():
-    inpA = int(input("What number would you like to tangent?"))
-    result = math.tan(inpA)
-    print(result)
+    try:
+        inpA = int(input("What number would you like to tangent?"))
+        result = math.tan(inpA)
+        print(result)
+    except ValueError:
+        print("invalid input please only enter integer values")
+    
+    
 
 
 if __name__ == '__main__':
